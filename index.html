@@ -12,11 +12,22 @@
         <fieldset class='common-info'>
             <legend>Общая информация</legend>
             <div class='common-info-inputs'>
-                <input type='text' name='surname' class="surname" placeholder='Фамилия' required>
-                <input type='text' name='name' class='name' placeholder='Имя' required>
-                <input type='text' name='patronym' class='patronym' placeholder='Отчество'>
-                <input type='number' name='birthdate' class='birthdate' placeholder='Дата рождения' required>
-                <input type='number' name='phone' class='phone' placeholder='Номер телефона' required>
+                <label class='required'>
+                    <input type='text' name='surname' class="surname" placeholder='Фамилия' required>
+                </label>
+                <label class='required'>
+                    <input type='text' name='name' class='name' placeholder='Имя' required>
+                </label>
+                <label class='optional'>
+                    <input type='text' name='patronym' class='patronym' placeholder='Отчество'>
+                </label>
+                <label class='required'>
+                    <input type='number' name='birthdate' class='birthdate' placeholder='Дата рождения' required>
+                </label>
+                <label class='required'>
+                    <input type='number' name='phone' class='phone' placeholder='Номер телефона' required>
+                </label>
+                
             </div>
             <div class='gender-wrapper'>
                 <h3>Пол</h3>
@@ -25,7 +36,7 @@
             </div>
     
             <div class='group-select'> 
-                <h3>Группа клиентов</h3>
+                <h3 class="required">Группа клиентов</h3>
                 <select name='client-group' class='client-group' multiple size='3' required>
                     <option>VIP</option>
                     <option>Проблемные</option>
@@ -43,32 +54,52 @@
     
             <label for='sms' class='sms-label'>
                 Не отправлять СМС
-                <input type="checkbox" name='sms' id='sms' checked> 
+                <input type="checkbox" name='sms' id='sms'> 
             </label>
         </fieldset>
         <fieldset class='address-group'>
             <legend>Адрес</legend>
-            <input type='number' name='index' class='index' placeholder='Индекс'>
-            <input type='text' name='country' class='country' placeholder='Страна'>
-            <input type='text' name='area' class='area' placeholder='Область'>
-            <input type='text' name='city' class='city' placeholder='Город' required>
-            <input type='text' name='street' class='street' placeholder='Улица'>
-            <input type='number' name='house' class='house' placeholder='Дом'>
+            <label class='optional'>
+                <input type='number' name='index' class='index' placeholder='Индекс'>
+            </label>
+            <label class='optional'>
+                <input type='text' name='country' class='country' placeholder='Страна'>
+            </label>
+            <label class='optional'>
+                <input type='text' name='area' class='area' placeholder='Область'>
+            </label>
+            <label class='required'>
+                <input type='text' name='city' class='city' placeholder='Город' required>
+            </label>
+            <label class='optional'>
+                <input type='text' name='street' class='street' placeholder='Улица'>
+            </label>
+            <label class='optional'>
+                <input type='number' name='house' class='house' placeholder='Дом'>
+            </label> 
         </fieldset>
         <fieldset class='pass-group'>
             <legend>Паспорт</legend>
             <div class='document-wrapper'>
-                <h3>Тип документа</h3>
+                <h3 class='required'>Тип документа</h3>
                 <select class='document-type' name='document-type' required>
                     <option>Паспорт</option>
                     <option>Свидетельство о рождении</option>
                     <option>Вод. удостоверение</option>
                 </select>
             </div>
-            <input type='number' name='pass-serie' class='pass-serie' placeholder='Серия'>
-            <input type='number' name='pass-number' class='pass-number' placeholder='Номер'>
-            <input type='text' name='pass-org' class='pass-org' placeholder='Кем выдан'>
-            <input type='number' name='pass-date' class='pass-date' placeholder='Дата выдачи' required>
+            <label class='optional'>
+                <input type='number' name='pass-serie' class='pass-serie' placeholder='Серия'>
+            </label>
+            <label class='optional'>
+                <input type='number' name='pass-number' class='pass-number' placeholder='Номер'>
+            </label>
+            <label class='optional'>
+                <input type='text' name='pass-org' class='pass-org' placeholder='Кем выдан'>
+            </label>
+            <label class='required'>
+                <input type='number' name='pass-date' class='pass-date' placeholder='Дата выдачи' required>
+            </label>
         </fieldset>
         <button type='submit' class='submit'>Отправить</button>
     </form>

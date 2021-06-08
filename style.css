@@ -39,10 +39,11 @@ legend {
 input, select {
     margin-top: 10px; 
     padding: 5px;
+    width: 92%;
 }
 
 select {
-    width: 100%;
+    width: 95%;
 }
 
 option {
@@ -78,6 +79,19 @@ input:focus, input:focus-visible, select:focus, select:focus-visible {
 
 .submit:active {
     background-color: #9494c7;
+}
+
+label.required, label.optional {
+    display: flex;
+}
+
+.required::after, .optional::after {
+    color: red;
+    content: ' * ';
+}
+
+.optional::after {
+    visibility: hidden;
 }
 
 @media (max-width: 460px) {
