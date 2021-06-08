@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id='form' name='form'>
+        <fieldset class='common-info'>
+            <legend>Общая информация</legend>
+            <div class='common-info-inputs'>
+                <input type='text' name='surname' class="surname" placeholder='Фамилия' required>
+                <input type='text' name='name' class='name' placeholder='Имя' required>
+                <input type='text' name='patronym' class='patronym' placeholder='Отчество'>
+                <input type='number' name='birthdate' class='birthdate' placeholder='Дата рождения' required>
+                <input type='number' name='phone' class='phone' placeholder='Номер телефона' required>
+            </div>
+            <div class='gender-wrapper'>
+                <h3>Пол</h3>
+                <p><input type='radio' name='gender' class='male' value='male'>Мужской</p>
+                <p><input type='radio' name='gender' class='female' value='female'>Женский</p>
+            </div>
+    
+            <div class='group-select'> 
+                <h3>Группа клиентов</h3>
+                <select name='client-group' class='client-group' multiple size='3' required>
+                    <option>VIP</option>
+                    <option>Проблемные</option>
+                    <option>ОМС</option>
+                </select>
+            </div>
+            <div class='doctor-wrapper'>
+                <h3>Лечащий врач</h3>
+                <select name="doctor" class='doctor'>
+                    <option>Иванов</option>
+                    <option>Захаров</option>
+                    <option>Чернышева</option>
+                </select>
+            </div>
+    
+            <label for='sms' class='sms-label'>
+                Не отправлять СМС
+                <input type="checkbox" name='sms' id='sms' checked> 
+            </label>
+        </fieldset>
+        <fieldset class='address-group'>
+            <legend>Адрес</legend>
+            <input type='number' name='index' class='index' placeholder='Индекс'>
+            <input type='text' name='country' class='country' placeholder='Страна'>
+            <input type='text' name='area' class='area' placeholder='Область'>
+            <input type='text' name='city' class='city' placeholder='Город' required>
+            <input type='text' name='street' class='street' placeholder='Улица'>
+            <input type='number' name='house' class='house' placeholder='Дом'>
+        </fieldset>
+        <fieldset class='pass-group'>
+            <legend>Паспорт</legend>
+            <div class='document-wrapper'>
+                <h3>Тип документа</h3>
+                <select class='document-type' name='document-type' required>
+                    <option>Паспорт</option>
+                    <option>Свидетельство о рождении</option>
+                    <option>Вод. удостоверение</option>
+                </select>
+            </div>
+            <input type='number' name='pass-serie' class='pass-serie' placeholder='Серия'>
+            <input type='number' name='pass-number' class='pass-number' placeholder='Номер'>
+            <input type='text' name='pass-org' class='pass-org' placeholder='Кем выдан'>
+            <input type='number' name='pass-date' class='pass-date' placeholder='Дата выдачи' required>
+        </fieldset>
+        <button type='submit' class='submit'>Отправить</button>
+    </form>
+    <script src='index.js'></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+form {
+    display: grid;
+    grid-template-areas: 
+    'a a'
+    'b c'
+    'd d';
+}
+
+fieldset, .common-info-inputs {
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f6fd;
+}
+
+.common-info {
+    grid-area: a;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.common-info div {
+    margin-right: 10px;
+}
+
+.address-group {
+    grid-area: b;
+}
+
+.pass-group {
+    grid-area: c;
+}
+
+legend {
+    font-weight: bold;
+    color: rgb(11, 11, 72);
+}
+
+input, select {
+    margin-top: 10px; 
+    padding: 5px;
+}
+
+select {
+    width: 100%;
+}
+
+option {
+    padding: 5px;
+}
+
+h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(6 6 91);
+}
+
+.sms-label {
+    align-self: center;
+}
+
+input:focus, input:focus-visible, select:focus, select:focus-visible {
+    outline: 1px solid blue;
+}
+
+.submit {
+    grid-area: d;
+    margin: auto;
+    padding: 5px 10px;
+    color: rgb(11, 11, 72);
+    margin-top: 10px;
+    background-color: #c9c9ec;
+}
+
+.submit:hover {
+    background-color: #a8a8d9;
+}
+
+.submit:active {
+    background-color: #9494c7;
+}
+
+@media (max-width: 460px) {
+    form {
+        grid-template-areas: 
+        'a'
+        'b'
+        'c'
+        'd';
+    }
+
+    .common-info {
+        flex-direction: column;
+    }
+}
