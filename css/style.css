@@ -49,13 +49,14 @@ h3 {
 input[type='radio'] {
   width: 15px; }
 
-.submit {
-  grid-area: d;
+.btn, .submit {
   margin: auto;
   padding: 5px 10px;
-  color: #0b0b48;
-  margin-top: 10px;
-  background-color: #c9c9ec; }
+  margin-top: 10px; }
+
+.submit {
+  grid-area: d;
+  color: #0b0b48; }
 
 label.required, label.optional {
   display: flex; }
@@ -100,11 +101,12 @@ input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkb
   outline: none;
   border: none; }
 
-.submit:hover {
-  background-color: #a8a8d9; }
-
-.submit:active {
-  background-color: #9494c7; }
+.submit {
+  background-color: #c9c9ec; }
+  .submit:hover {
+    background-color: #a8a8d9; }
+  .submit:active {
+    background-color: #9494c7; }
 
 input.invalid {
   outline: 1px solid red; }

@@ -1,3 +1,13 @@
+@mixin status ($normal, $hover, $active) {
+    background-color: $normal;
+    &:hover {
+    background-color: $hover;
+    }
+    &:active {
+    background-color: $active;
+    }
+}
+
 input:focus, input:focus-visible, select:focus, select:focus-visible {
     outline: 1px solid $focus;
 }
@@ -7,12 +17,8 @@ input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkb
     border: none;
 }
 
-.submit:hover {
-    background-color: $btn-hover;
-}
-
-.submit:active {
-    background-color: $btn-active;
+.submit {
+    @include status(#c9c9ec, #a8a8d9, #9494c7);
 }
 
 input.invalid {

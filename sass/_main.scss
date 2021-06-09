@@ -3,9 +3,6 @@ $dark:rgb(11, 11, 72);
 $medium:rgb(6, 6, 91);
 $light:#f7f6fd;
 $focus: blue;
-$btn-color: #c9c9ec;
-$btn-hover: #a8a8d9;
-$btn-active: #9494c7;
 $red: red;
 $green: green;
 
@@ -85,13 +82,15 @@ input[type='radio'] {
     width: 15px;
 }
 
-.submit {
-    grid-area: d;
+.btn {
     margin: auto;
     padding: $padding-normal $margin-normal;
-    color: $dark;
     margin-top: $margin-normal;
-    background-color: $btn-color;
+}
+.submit {
+    @extend.btn;
+    grid-area: d;
+    color: $dark;
 }
 
 
@@ -125,6 +124,7 @@ input[placeholder='Дата рождения'], input[placeholder='Дата вы
     grid-area: c;
     justify-self: end;
 }
+
 
 
 input::-webkit-outer-spin-button,
