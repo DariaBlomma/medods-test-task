@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*
 Errno::ENOENT: No such file or directory @ rb_sysopen - style.scss
 
@@ -18,135 +17,187 @@ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/sass-3.7.4/bin/sass:13:in `<top (required
 C:/Ruby27-x64/bin/sass:23:in `load'
 C:/Ruby27-x64/bin/sass:23:in `<main>'
 */
+// body:before {
+//   white-space: pre;
+//   font-family: monospace;
+//   content: "Errno::ENOENT: No such file or directory @ rb_sysopen - style.scss"; }
 form {
-  display: grid;
-  grid-template-areas: 'a a' 'b c' 'e e' 'd d'; }
+    display: grid;
+    grid-template-areas: 
+    'a a'
+    'b c'
+    'e e'
+    'd d';
+}
 
 fieldset, .common-info-inputs {
-  display: flex;
-  flex-direction: column;
-  background-color: #f7f6fd; }
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f6fd;
+}
 
 .common-info {
-  grid-area: a;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap; }
+    grid-area: a;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
 .common-info div {
-  margin-right: 10px; }
+    margin-right: 10px;
+}
 
 .address-group {
-  grid-area: b; }
+    grid-area: b;
+}
 
 .pass-group {
-  grid-area: c; }
+    grid-area: c;
+}
 
 legend {
-  font-weight: bold;
-  color: #0b0b48; }
+    font-weight: bold;
+    color: rgb(11, 11, 72);
+}
 
 input, select {
-  margin-top: 10px;
-  padding: 5px;
-  width: 92%; }
+    margin-top: 10px; 
+    padding: 5px;
+    width: 92%;
+}
 
 select {
-  width: 95%; }
+    width: 95%;
+}
 
 option {
-  padding: 5px; }
+    padding: 5px;
+}
 
 h3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: #06065b; }
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(6, 6, 91);
+}
 
 .sms-label {
-  align-self: center; }
+    align-self: center;
+}
+
+
 
 input:focus, input:focus-visible, select:focus, select:focus-visible {
-  outline: 1px solid blue; }
+    outline: 1px solid blue;
+}
 
 input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkbox']:focus, input[type='checkbox']:focus-visible {
-  outline: none;
-  border: none; }
+    outline: none;
+    border: none;
+}
 
 input[type='radio'] {
-  width: 15px; }
+    width: 15px;
+}
 
 .submit {
-  grid-area: d;
-  margin: auto;
-  padding: 5px 10px;
-  color: #0b0b48;
-  margin-top: 10px;
-  background-color: #c9c9ec; }
+    grid-area: d;
+    margin: auto;
+    padding: 5px 10px;
+    color: rgb(11, 11, 72);
+    margin-top: 10px;
+    background-color: #c9c9ec;
+}
 
 .submit:hover {
-  background-color: #a8a8d9; }
+    background-color: #a8a8d9;
+}
 
 .submit:active {
-  background-color: #9494c7; }
+    background-color: #9494c7;
+}
 
 label.required, label.optional {
-  display: flex; }
+    display: flex;
+}
 
 .required::after, .optional::after {
-  color: red;
-  content: ' * '; }
+    color: red;
+    content: ' * ';
+}
 
 .optional::after {
-  visibility: hidden; }
+    visibility: hidden;
+}
 
 label.birthdate, label.pass-date-label {
-  display: grid;
-  grid-template-areas: 'a c' 'b b';
-  padding-right: 8px;
-  margin-top: 10px; }
+    display: grid;
+    grid-template-areas: 
+    'a c'
+    'b b';
+    padding-right: 8px;
+    margin-top: 10px;
+}
 
 input[placeholder='Дата рождения'], input[placeholder='Дата выдачи'] {
-  grid-area: b; }
+    grid-area: b;
+}
 
 .birthdate::after, .pass-date-label::after {
-  grid-area: c;
-  justify-self: end; }
+    grid-area: c;
+    justify-self: end;
+}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none; }
+    -webkit-appearance: none;
+}
 
 input[type='number'] {
-  -moz-appearance: textfield; }
+    -moz-appearance: textfield;
+}
 
 input.invalid {
-  outline: 1px solid red; }
+    outline: 1px solid red;
+}
 
 input.valid {
-  outline: 1px solid green; }
+    outline: 1px solid green;
+}
+
 
 .must-mark, .error-message {
-  color: red; }
+    color: red;
+}
 
 .error-message {
-  margin: 10px 0;
-  margin-bottom: 0;
-  font-size: 12px; }
+    margin: 10px 0;
+    margin-bottom: 0;
+    font-size: 12px;
+}
 
 .success-sent {
-  color: green;
-  grid-area: e;
-  margin: auto;
-  margin-top: 10px; }
+    color: green;
+    grid-area: e;
+    margin: auto;
+    margin-top: 10px;
+}
 
 .d-none {
-  display: none; }
+    display: none;
+}
 
 @media (max-width: 460px) {
-  form {
-    grid-template-areas: 'a' 'b' 'c' 'e' 'd'; }
+    form {
+        grid-template-areas: 
+        'a'
+        'b'
+        'c'
+        'e'
+        'd';
+    }
 
-  .common-info {
-    flex-direction: column; } }
-
-/*# sourceMappingURL=style.css.map */
+    .common-info {
+        flex-direction: column;
+    }
+}
