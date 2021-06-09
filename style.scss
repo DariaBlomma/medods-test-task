@@ -21,6 +21,25 @@ C:/Ruby27-x64/bin/sass:23:in `<main>'
 //   white-space: pre;
 //   font-family: monospace;
 //   content: "Errno::ENOENT: No such file or directory @ rb_sysopen - style.scss"; }
+
+// colors
+$dark:rgb(11, 11, 72);
+$medium:rgb(6, 6, 91);
+$light:#f7f6fd;
+$focus: blue;
+$btn-color: #c9c9ec;
+$btn-hover: #a8a8d9;
+$btn-active: #9494c7;
+$red: red;
+$green: green;
+
+// margin, padding
+$margin-normal: 10px;
+$padding-normal: 5px;
+
+// font size
+$small: 12px;
+
 form {
     display: grid;
     grid-template-areas: 
@@ -33,7 +52,7 @@ form {
 fieldset, .common-info-inputs {
     display: flex;
     flex-direction: column;
-    background-color: #f7f6fd;
+    background-color: $light;
 }
 
 .common-info {
@@ -44,7 +63,7 @@ fieldset, .common-info-inputs {
 }
 
 .common-info div {
-    margin-right: 10px;
+    margin-right: $margin-normal;
 }
 
 .address-group {
@@ -57,12 +76,12 @@ fieldset, .common-info-inputs {
 
 legend {
     font-weight: bold;
-    color: rgb(11, 11, 72);
+    color: $dark;
 }
 
 input, select {
-    margin-top: 10px; 
-    padding: 5px;
+    margin-top: $margin-normal; 
+    padding: $padding-normal;
     width: 92%;
 }
 
@@ -71,23 +90,21 @@ select {
 }
 
 option {
-    padding: 5px;
+    padding: $padding-normal;
 }
 
 h3 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: rgb(6, 6, 91);
+    margin-top: $margin-normal;
+    margin-bottom: $margin-normal;
+    color: $medium;
 }
 
 .sms-label {
     align-self: center;
 }
 
-
-
 input:focus, input:focus-visible, select:focus, select:focus-visible {
-    outline: 1px solid blue;
+    outline: 1px solid $focus;
 }
 
 input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkbox']:focus, input[type='checkbox']:focus-visible {
@@ -102,18 +119,18 @@ input[type='radio'] {
 .submit {
     grid-area: d;
     margin: auto;
-    padding: 5px 10px;
-    color: rgb(11, 11, 72);
-    margin-top: 10px;
-    background-color: #c9c9ec;
+    padding: $padding-normal $margin-normal;
+    color: $dark;
+    margin-top: $margin-normal;
+    background-color: $btn-color;
 }
 
 .submit:hover {
-    background-color: #a8a8d9;
+    background-color: $btn-hover;
 }
 
 .submit:active {
-    background-color: #9494c7;
+    background-color: $btn-active;
 }
 
 label.required, label.optional {
@@ -121,7 +138,7 @@ label.required, label.optional {
 }
 
 .required::after, .optional::after {
-    color: red;
+    color: $red;
     content: ' * ';
 }
 
@@ -135,7 +152,7 @@ label.birthdate, label.pass-date-label {
     'a c'
     'b b';
     padding-right: 8px;
-    margin-top: 10px;
+    margin-top: $margin-normal;
 }
 
 input[placeholder='Дата рождения'], input[placeholder='Дата выдачи'] {
@@ -158,29 +175,29 @@ input[type='number'] {
 }
 
 input.invalid {
-    outline: 1px solid red;
+    outline: 1px solid $red;
 }
 
 input.valid {
-    outline: 1px solid green;
+    outline: 1px solid $green;
 }
 
 
 .must-mark, .error-message {
-    color: red;
+    color: $red;
 }
 
 .error-message {
-    margin: 10px 0;
+    margin: $margin-normal 0;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: $small;
 }
 
 .success-sent {
     color: green;
     grid-area: e;
     margin: auto;
-    margin-top: 10px;
+    margin-top: $margin-normal;
 }
 
 .d-none {
