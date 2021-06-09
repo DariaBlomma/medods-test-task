@@ -62,8 +62,10 @@ fieldset, .common-info-inputs {
     flex-wrap: wrap;
 }
 
-.common-info div {
-    margin-right: $margin-normal;
+.common-info {
+    div {
+        margin-right: $margin-normal;
+    }
 }
 
 .address-group {

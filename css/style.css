@@ -1,0 +1,132 @@
+@charset "UTF-8";
+form {
+  display: grid;
+  grid-template-areas: 'a a' 'b c' 'e e' 'd d'; }
+
+fieldset, .common-info-inputs {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f6fd; }
+
+.common-info {
+  grid-area: a;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap; }
+
+.common-info div {
+  margin-right: 10px; }
+
+.address-group {
+  grid-area: b; }
+
+.pass-group {
+  grid-area: c; }
+
+legend {
+  font-weight: bold;
+  color: #0b0b48; }
+
+input, select {
+  margin-top: 10px;
+  padding: 5px;
+  width: 92%; }
+
+select {
+  width: 95%; }
+
+option {
+  padding: 5px; }
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #06065b; }
+
+.sms-label {
+  align-self: center; }
+
+input[type='radio'] {
+  width: 15px; }
+
+.submit {
+  grid-area: d;
+  margin: auto;
+  padding: 5px 10px;
+  color: #0b0b48;
+  margin-top: 10px;
+  background-color: #c9c9ec; }
+
+label.required, label.optional {
+  display: flex; }
+
+.required::after, .optional::after {
+  color: red;
+  content: ' * '; }
+
+.optional::after {
+  visibility: hidden; }
+
+label.birthdate, label.pass-date-label {
+  display: grid;
+  grid-template-areas: 'a c' 'b b';
+  padding-right: 8px;
+  margin-top: 10px; }
+
+input[placeholder='Дата рождения'], input[placeholder='Дата выдачи'] {
+  grid-area: b; }
+
+.birthdate::after, .pass-date-label::after {
+  grid-area: c;
+  justify-self: end; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; }
+
+input[type='number'] {
+  -moz-appearance: textfield; }
+
+@media (max-width: 460px) {
+  form {
+    grid-template-areas: 'a' 'b' 'c' 'e' 'd'; }
+
+  .common-info {
+    flex-direction: column; } }
+input:focus, input:focus-visible, select:focus, select:focus-visible {
+  outline: 1px solid blue; }
+
+input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkbox']:focus, input[type='checkbox']:focus-visible {
+  outline: none;
+  border: none; }
+
+.submit:hover {
+  background-color: #a8a8d9; }
+
+.submit:active {
+  background-color: #9494c7; }
+
+input.invalid {
+  outline: 1px solid red; }
+
+input.valid {
+  outline: 1px solid green; }
+
+.must-mark, .error-message {
+  color: red; }
+
+.error-message {
+  margin: 10px 0;
+  margin-bottom: 0;
+  font-size: 12px; }
+
+.success-sent {
+  color: green;
+  grid-area: e;
+  margin: auto;
+  margin-top: 10px; }
+
+.d-none {
+  display: none; }
+
+/*# sourceMappingURL=style.css.map */

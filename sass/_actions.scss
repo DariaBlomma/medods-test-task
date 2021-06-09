@@ -1,0 +1,46 @@
+input:focus, input:focus-visible, select:focus, select:focus-visible {
+    outline: 1px solid $focus;
+}
+
+input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkbox']:focus, input[type='checkbox']:focus-visible {
+    outline: none;
+    border: none;
+}
+
+.submit:hover {
+    background-color: $btn-hover;
+}
+
+.submit:active {
+    background-color: $btn-active;
+}
+
+input.invalid {
+    outline: 1px solid $red;
+}
+
+input.valid {
+    outline: 1px solid $green;
+}
+
+
+.must-mark, .error-message {
+    color: $red;
+}
+
+.error-message {
+    margin: $margin-normal 0;
+    margin-bottom: 0;
+    font-size: $small;
+}
+
+.success-sent {
+    color: green;
+    grid-area: e;
+    margin: auto;
+    margin-top: $margin-normal;
+}
+
+.d-none {
+    display: none;
+}

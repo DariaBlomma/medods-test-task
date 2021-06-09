@@ -1,0 +1,154 @@
+// colors
+$dark:rgb(11, 11, 72);
+$medium:rgb(6, 6, 91);
+$light:#f7f6fd;
+$focus: blue;
+$btn-color: #c9c9ec;
+$btn-hover: #a8a8d9;
+$btn-active: #9494c7;
+$red: red;
+$green: green;
+
+// margin, padding
+$margin-normal: 10px;
+$padding-normal: 5px;
+
+// font size
+$small: 12px;
+
+form {
+    display: grid;
+    grid-template-areas: 
+    'a a'
+    'b c'
+    'e e'
+    'd d';
+}
+
+fieldset, .common-info-inputs {
+    display: flex;
+    flex-direction: column;
+    background-color: $light;
+}
+
+.common-info {
+    grid-area: a;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.common-info {
+    div {
+        margin-right: $margin-normal;
+    }
+}
+
+.address-group {
+    grid-area: b;
+}
+
+.pass-group {
+    grid-area: c;
+}
+
+legend {
+    font-weight: bold;
+    color: $dark;
+}
+
+input, select {
+    margin-top: $margin-normal; 
+    padding: $padding-normal;
+    width: 92%;
+}
+
+select {
+    width: 95%;
+}
+
+option {
+    padding: $padding-normal;
+}
+
+h3 {
+    margin-top: $margin-normal;
+    margin-bottom: $margin-normal;
+    color: $medium;
+}
+
+.sms-label {
+    align-self: center;
+}
+
+input[type='radio'] {
+    width: 15px;
+}
+
+.submit {
+    grid-area: d;
+    margin: auto;
+    padding: $padding-normal $margin-normal;
+    color: $dark;
+    margin-top: $margin-normal;
+    background-color: $btn-color;
+}
+
+
+label.required, label.optional {
+    display: flex;
+}
+
+.required::after, .optional::after {
+    color: $red;
+    content: ' * ';
+}
+
+.optional::after {
+    visibility: hidden;
+}
+
+label.birthdate, label.pass-date-label {
+    display: grid;
+    grid-template-areas: 
+    'a c'
+    'b b';
+    padding-right: 8px;
+    margin-top: $margin-normal;
+}
+
+input[placeholder='Дата рождения'], input[placeholder='Дата выдачи'] {
+    grid-area: b;
+}
+
+.birthdate::after, .pass-date-label::after {
+    grid-area: c;
+    justify-self: end;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+
+
+@media (max-width: 460px) {
+    form {
+        grid-template-areas: 
+        'a'
+        'b'
+        'c'
+        'e'
+        'd';
+    }
+
+    .common-info {
+        flex-direction: column;
+    }
+}
