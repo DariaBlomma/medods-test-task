@@ -3,6 +3,7 @@ form {
     grid-template-areas: 
     'a a'
     'b c'
+    'e e'
     'd d';
 }
 
@@ -60,8 +61,19 @@ h3 {
     align-self: center;
 }
 
+
+
 input:focus, input:focus-visible, select:focus, select:focus-visible {
     outline: 1px solid blue;
+}
+
+input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkbox']:focus, input[type='checkbox']:focus-visible {
+    outline: none;
+    border: none;
+}
+
+input[type='radio'] {
+    width: 15px;
 }
 
 .submit {
@@ -94,12 +106,71 @@ label.required, label.optional {
     visibility: hidden;
 }
 
+label.birthdate, label.pass-date-label {
+    display: grid;
+    grid-template-areas: 
+    'a c'
+    'b b';
+    padding-right: 8px;
+    margin-top: 10px;
+}
+
+input[placeholder='Дата рождения'], input[placeholder='Дата выдачи'] {
+    grid-area: b;
+}
+
+.birthdate::after, .pass-date-label::after {
+    grid-area: c;
+    justify-self: end;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input.invalid {
+    outline: 1px solid red;
+}
+
+input.valid {
+    outline: 1px solid green;
+}
+
+
+.must-mark, .error-message {
+    color: red;
+}
+
+.error-message {
+    margin: 10px 0;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+.success-sent {
+    color: green;
+    grid-area: e;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.d-none {
+    display: none;
+}
+
 @media (max-width: 460px) {
     form {
         grid-template-areas: 
         'a'
         'b'
         'c'
+        'e'
         'd';
     }
 

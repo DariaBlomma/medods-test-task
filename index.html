@@ -9,6 +9,7 @@
 </head>
 <body>
     <form id='form' name='form'>
+        <p><span class='must-mark'> * </span> <i>Поле обязательное для заполнения</i></p>
         <fieldset class='common-info'>
             <legend>Общая информация</legend>
             <div class='common-info-inputs'>
@@ -21,11 +22,13 @@
                 <label class='optional'>
                     <input type='text' name='patronym' class='patronym' placeholder='Отчество'>
                 </label>
-                <label class='required'>
-                    <input type='number' name='birthdate' class='birthdate' placeholder='Дата рождения' required>
+                <label class='required birthdate'>
+                    Дата рождения
+                    <input type='date' name='birthdate' class='birthdate' placeholder='Дата рождения' required>
+                    <!-- <input type='text' name='birthdate' class='birthdate' placeholder='Дата рождения' required> -->
                 </label>
                 <label class='required'>
-                    <input type='number' name='phone' class='phone' placeholder='Номер телефона' required>
+                    <input type='tel' name='phone' class='phone' placeholder='Номер телефона' required>
                 </label>
                 
             </div>
@@ -60,7 +63,7 @@
         <fieldset class='address-group'>
             <legend>Адрес</legend>
             <label class='optional'>
-                <input type='number' name='index' class='index' placeholder='Индекс'>
+                <input type='number' name='index' class='index length6' placeholder='Индекс'>
             </label>
             <label class='optional'>
                 <input type='text' name='country' class='country' placeholder='Страна'>
@@ -92,15 +95,18 @@
                 <input type='number' name='pass-serie' class='pass-serie' placeholder='Серия'>
             </label>
             <label class='optional'>
-                <input type='number' name='pass-number' class='pass-number' placeholder='Номер'>
+                <input type='number' name='pass-number' class='pass-number length6' placeholder='Номер'>
             </label>
             <label class='optional'>
                 <input type='text' name='pass-org' class='pass-org' placeholder='Кем выдан'>
             </label>
-            <label class='required'>
-                <input type='number' name='pass-date' class='pass-date' placeholder='Дата выдачи' required>
+            <label class='required pass-date-label'>
+                Дата выдачи
+                <input type='date' name='pass-date' class='pass-date' placeholder='Дата выдачи' required>
+                <!-- <input type='text' name='pass-date' class='pass-date' placeholder='Дата выдачи' required> -->
             </label>
         </fieldset>
+        <p class='success-sent d-none'>Hовый клиент успешно создан</p>
         <button type='submit' class='submit'>Отправить</button>
     </form>
     <script src='index.js'></script>
