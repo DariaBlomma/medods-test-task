@@ -13,44 +13,74 @@ const showRoundNumber = number => {
     });
 };
 
+let time = 1500;
+
+const changeLevel = () => {
+    document.addEventListener('change', event => {
+        const target = event.target;
+        time = Number(target.value);
+    });
+};
+changeLevel();
+
 const gamerAction = (arr, round) => {
     //console.log('arr: ', arr);
     let click = 0;
     const circle = document.querySelector('.circle'),
         lostMessage = document.querySelector('.lost-message');
+    let parts = [...circle.querySelectorAll('div')];
     circle.addEventListener('click', event => {
         click++;
+        renderSound(click);
         const target = event.target;
         target.classList.add('lighter');
         setTimeout(() => {
             target.classList.remove('lighter');
-        }, 1000);
-        //console.log('arr: ', arr);
-        // console.log('click: ', click);
+        }, time);
+        console.log('arr: ', arr);
+        console.log('click: ', click);
         // каждый элемент массива
         if (arr[click - 1] != target.dataset.index) {
-            // console.log('arr: ', arr);
-            // console.log('click: ', click);
-            
-            // console.log('target.dataset.index: ', target.dataset.index);
-            // console.log('arr[click - 1: ', arr[click - 1]);
+            console.log('arr: ', arr);
+            console.log('click: ', click);
+            console.log('round: ', round);
+            console.log('target.dataset.index: ', target.dataset.index);
+            console.log('arr[click - 1: ', arr[click - 1]);
             click = 0;
             document.querySelector('.start').removeAttribute('disabled');
             lostMessage.classList.remove('d-none');
             showRoundNumber(round);
             round = 0;
         } else if (arr.length - 1 === click - 1) {
-            click = 0;
-            
-            //console.log('click: ', click);
-            
-            round++;
             setTimeout(() => {
-                showRoundNumber(round);
-                arr = showPart(round);
-                //console.log('arr: ', arr);
-            }, 1500);
+                const check = parts.some(item => item.classList.contains('lighter'));
+                if (!check) {
+                    console.log('next level');
+                    click = 0;
+                    round++;
+                    showRoundNumber(round);
+                    arr = showPart(round);
+                }
+            }, time);
         }
+
+
+
+        // } else if (arr.length - 1 === click - 1) {
+        //     console.log('click: ', click);
+        //     console.log('arr.length: ', arr.length);
+        //     click = 0;
+        //     console.log('last element');
+        //     //console.log('click: ', click);
+        //     round++;
+        //     setTimeout(() => {
+        //         show++;
+        //         console.log('show: ', show);
+        //         showRoundNumber(round);
+        //         arr = showPart(round);
+        //         //console.log('arr: ', arr);
+        //     }, 1500);
+        // }
 
     });
 };
@@ -64,22 +94,29 @@ const renderRandom = () => Math.floor(Math.random() * 4);
 //     }
 //     return arr;
 // };
-
+let show = 0;
 const showPart = row => {
     // row is number of rounds
-    let time = 1500;
-
+    //show++;
+    // if (show === 3) {
+    //     console.log('in show part');
+    //     debugger;
+    // }
+   
+    // let time = 1500;
     const parts = document.querySelectorAll('.circle div'),
         startBtn = document.querySelector('.start');
     startBtn.setAttribute('disabled', 'true');
+    if (row >= 2) {
+       
+        // debugger;
+    }
     const arr = [];
     for (let i = 0; i < row; i++) {
         arr.push(renderRandom());
     }
     // const arr = getRandomArr(row);
-    if (arr.length > 2) {
-        console.log('arr: ', arr);
-    }
+    //console.log('arr: ', arr);
 
     arr.forEach((item, index) => {
         if (index === 0) {
@@ -122,7 +159,7 @@ const showPart = row => {
 
             if (index === arr.length - 1) {
                 setTimeout(() => {
-                    console.log('row: ', row);
+                    //console.log('row: ', row);
                     gamerAction(arr, row);
                     
                     //return arr;
