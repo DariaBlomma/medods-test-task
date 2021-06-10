@@ -21,6 +21,10 @@ input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkb
     @include status(#c9c9ec, #a8a8d9, #9494c7);
 }
 
+:disabled {
+    opacity: 0.6;
+}
+
 input.invalid {
     outline: 1px solid $red;
 }
@@ -41,7 +45,7 @@ input.valid {
 }
 
 .success-sent {
-    color: green;
+    color: $green;
     grid-area: e;
     margin: auto;
     margin-top: $margin-normal;

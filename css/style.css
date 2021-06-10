@@ -108,6 +108,9 @@ input[type='radio']:focus, input[type='radio']:focus-visible, input[type='checkb
   .submit:active {
     background-color: #9494c7; }
 
+:disabled {
+  opacity: 0.6; }
+
 input.invalid {
   outline: 1px solid red; }
 

@@ -11,34 +11,43 @@ const renderErrorMessage = (elem, text, type) => {
     }, 5000);
 };
 
-const changeLabel = (input, label, text) => {
+const changeLabel = (input, label, text, classToRemove) => {
     if (input.type === 'text') {
         label.innerHTML = label.innerHTML.replace(text, '');
+        label.classList.remove(classToRemove);
     }
 };
 
 const showValidity = (reg, input, messageText, classAdd, clear = false) => {
+
     const test = reg.test(input.value);
     if (test) {
         input.classList.add('valid');
     } else {
         const message = input.parentNode.nextElementSibling;
-        if (message === null || !message.classList.contains(classAdd) && input.value !== '') {
-            renderErrorMessage(input, messageText, classAdd);
+        if (input.value !== '') {
             if (clear) {
                 input.value = '';
+            }
+            if (message === null || !message.classList.contains(classAdd)) {
+                // if (messageText === 'Введите от 2 до 50 символов') {
+                //     console.log(input.value.length);
+                //     debugger;
+                // }
+                renderErrorMessage(input, messageText, classAdd);
             }
         }
     }
 };
 
 const validation = () => {
-    const reg = /[\d\D]{2,50}/ig;
+    const reg = /^.{2,50}$/ig;
     const birthReg = /(\d{2,4}[\s.\/-]?){3}/g,
         phoneReg = /\+7([\s()-]*\d){10}/g,
         length6reg = /\d{6}/g,
         length4Reg = /\d{4}/g,
-        ruReg = /[А-я\s.]/ig;
+        ruReg = /[А-я\s.]/ig,
+        lettersReg = /[A-zА-я]/ig;
     const dateInput = document.querySelector('[placeholder="Дата рождения"]'),
         dateLabel = document.querySelector('.birthdate'),
         passInput = document.querySelector('[placeholder="Дата выдачи"]'),
@@ -50,8 +59,10 @@ const validation = () => {
         submitBtn = document.querySelector('.submit'),
         successSent = document.querySelector('.success-sent');
 
-    changeLabel(dateInput, dateLabel, 'Дата рождения');
-    changeLabel(passInput, passLabel, 'Дата выдачи');
+    submitBtn.setAttribute('disabled', 'true');
+
+    changeLabel(dateInput, dateLabel, 'Дата рождения', 'birthdate');
+    changeLabel(passInput, passLabel, 'Дата выдачи', 'pass-date-label');
 
     const textFields = document.querySelectorAll('[type="text"]');
 
@@ -61,13 +72,19 @@ const validation = () => {
             if (target === item) {
                 if (item.placeholder !== 'Дата рождения' && item.placeholder !== 'Дата выдачи') {
                     showValidity(ruReg, target, 'Используйте только русские буквы', 'ru', true);
+                } else {
+                    target.value = target.value.replace(lettersReg, '');
                 }
 
                 target.value = target.value.replace(/[\s+]{2,}/ig, '');
                 target.value = target.value.replace(/^\s/ig, '');
                 target.value = target.value.replace(/\s$/ig, '');
             }
-        })
+        });
+
+        if (target.matches('.phone')) {
+            target.value = target.value.replace(lettersReg, '');
+        }
     });
     document.addEventListener('blur', event => {
         textFields.forEach(item => {
@@ -77,6 +94,8 @@ const validation = () => {
         });
 
         if (dateInput.type !== 'date' && passInput.type !== 'date') {
+            const dateInput = document.querySelector('[placeholder="Дата рождения"]'),
+                passInput = document.querySelector('[placeholder="Дата выдачи"]');
             showValidity(birthReg, dateInput, 'Некорректная дата', 'birth');
             showValidity(birthReg, passInput, 'Некорректная дата', 'pass-date-check');
         }
@@ -88,7 +107,7 @@ const validation = () => {
         });
 
         showValidity(length4Reg, passSerie, 'Используйте 4 цифры', 'length-def4');
-
+        const allInputs = document.querySelectorAll('input');
         allInputs.forEach(item => {
             if (item.value === '') {
                 item.classList.remove('valid');
@@ -99,17 +118,44 @@ const validation = () => {
                 }
             }
         });
+
+        let required = document.querySelectorAll('.required');
+        required = [...required];
+        event.preventDefault();
+        const check = required.every(item => item.classList.contains('valid'));
+        if (check) {
+            submitBtn.removeAttribute('disabled');
+            successSent.classList.remove('d-none');
+            allInputs.forEach(item => {
+                item.value = '';
+            });
+            setTimeout(() => {
+                successSent.classList.add('d-none');
+            }, 5000);
+        }
     }, true);
 
     submitBtn.addEventListener('click', event => {
+        let required = document.querySelectorAll('.required');
+        required = [...required];
         event.preventDefault();
-        successSent.classList.remove('d-none');
-        allInputs.forEach(item => {
-            item.value = '';
-        });
-        setTimeout(() => {
+        const check = required.every(item => item.classList.contains('valid'));
+        if (check) {
+            submitBtn.removeAttribute('disabled');
+            successSent.classList.remove('d-none');
+            errorSent.classList.add('d-none');
+            allInputs.forEach(item => {
+                item.value = '';
+            });
+            setTimeout(() => {
+                successSent.classList.add('d-none');
+            }, 5000);
+        } else {
+            submitBtn.setAttribute('disabled', 'true');
+            errorSent.classList.remove('d-none');
             successSent.classList.add('d-none');
-        }, 5000);
+        }
+
     });
 };
 validation();

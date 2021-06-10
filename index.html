@@ -25,8 +25,8 @@
                 </label>
                 <label class='required birthdate'>
                     Дата рождения
-                    <input type='date' name='birthdate' class='birthdate' placeholder='Дата рождения' required>
-                    <!-- <input type='text' name='birthdate' class='birthdate' placeholder='Дата рождения' required> -->
+                    <!-- <input type='date' name='birthdate' class='birthdate' placeholder='Дата рождения' required> -->
+                    <input type='text' name='birthdate' class='birthdate' placeholder='Дата рождения' required>
                 </label>
                 <label class='required'>
                     <input type='tel' name='phone' class='phone' placeholder='Номер телефона' required>
@@ -35,7 +35,7 @@
             </div>
             <div class='gender-wrapper'>
                 <h3>Пол</h3>
-                <p><input type='radio' name='gender' class='male' value='male'>Мужской</p>
+                <p><input type='radio' name='gender' class='male' value='male' checked>Мужской</p>
                 <p><input type='radio' name='gender' class='female' value='female'>Женский</p>
             </div>
     
@@ -44,13 +44,13 @@
                 <select name='client-group' class='client-group' multiple size='3' required>
                     <option>VIP</option>
                     <option>Проблемные</option>
-                    <option>ОМС</option>
+                    <option selected>ОМС</option>
                 </select>
             </div>
             <div class='doctor-wrapper'>
                 <h3>Лечащий врач</h3>
                 <select name="doctor" class='doctor'>
-                    <option>Иванов</option>
+                    <option selected>Иванов</option>
                     <option>Захаров</option>
                     <option>Чернышева</option>
                 </select>
@@ -87,7 +87,7 @@
             <div class='document-wrapper'>
                 <h3 class='required'>Тип документа</h3>
                 <select class='document-type' name='document-type' required>
-                    <option>Паспорт</option>
+                    <option selected>Паспорт</option>
                     <option>Свидетельство о рождении</option>
                     <option>Вод. удостоверение</option>
                 </select>
@@ -103,8 +103,8 @@
             </label>
             <label class='required pass-date-label'>
                 Дата выдачи
-                <input type='date' name='pass-date' class='pass-date' placeholder='Дата выдачи' required>
-                <!-- <input type='text' name='pass-date' class='pass-date' placeholder='Дата выдачи' required> -->
+                <!-- <input type='date' name='pass-date' class='pass-date' placeholder='Дата выдачи' required> -->
+                <input type='text' name='pass-date' class='pass-date' placeholder='Дата выдачи' required>
             </label>
         </fieldset>
         <p class='success-sent d-none'>Hовый клиент успешно создан</p>
